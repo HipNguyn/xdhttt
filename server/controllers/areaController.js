@@ -1,0 +1,5 @@
+const Area = require('../models/Area'); const ApiError = require('../utils/ApiError'); const asyncHandler = require('../utils/asyncHandler'); const { sendSuccess } = require('../utils/apiResponse');
+exports.list = asyncHandler(async (req, res) => { const filter = req.query.active === 'true' ? { isActive: true } : {}; const areas = await Area.find(filter).sort({ name: 1 }); return sendSuccess(res, 200, 'Lấy danh sách khu vực thành công', { areas }); });
+exports.create = asyncHandler(async (req, res) => { const area = await Area.create(req.body); return sendSuccess(res, 201, 'Thêm khu vực thành công', { area }); });
+exports.getById = asyncHandler(async (req, res) => { const area = await Area.findById(req.params.id); if (!area) throw new ApiError(404, 'Không tìm thấy khu vực'); return sendSuccess(res, 200, 'Lấy khu vực thành công', { area }); });
+exports.update = asyncHandler(async (req, res) => { const area = await Area.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true }); if (!area) throw new ApiError(404, 'Không tìm thấy khu vực'); return sendSuccess(res, 200, 'Cập nhật khu vực thành công', { area }); });

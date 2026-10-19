@@ -1,0 +1,1 @@
+const app=require('./app'),connectDatabase=require('./config/db');const port=process.env.PORT||5000;connectDatabase().then(()=>app.listen(port,()=>console.log(`Server running at http://localhost:${port}`))).catch((error)=>{console.error(`Database connection failed: ${error.message}`);process.exit(1)});

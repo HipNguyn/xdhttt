@@ -1,0 +1,1 @@
+const r=require('express').Router(),c=require('../controllers/statisticsController'),{authenticate}=require('../middlewares/authMiddleware'),{allowRoles,requireApprovedShipper}=require('../middlewares/roleMiddleware');r.get('/admin',authenticate,allowRoles('admin'),c.admin);r.get('/shipper',authenticate,requireApprovedShipper,c.shipper);module.exports=r;

@@ -1,0 +1,21 @@
+﻿# Runtime secrets and local settings
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+logs/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Coverage/build artifacts
+coverage/
+dist/
