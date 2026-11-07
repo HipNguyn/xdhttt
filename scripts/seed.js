@@ -10,8 +10,28 @@ async function seed() {
   await connectDatabase();
   await Promise.all([Order.deleteMany({}), User.deleteMany({}), Area.deleteMany({})]);
   const [nhonBinh, leHongPhong] = await Area.create([
-    { name: 'Nhơn Bình', description: 'Khu vực nội thành Quy Nhơn' },
-    { name: 'Lê Hồng Phong', description: 'Khu vực nội thành Quy Nhơn' },
+    // 16 phường và 5 xã thuộc thành phố Quy Nhơn (phạm vi dự án).
+    { name: 'Bùi Thị Xuân', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Đống Đa', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Ghềnh Ráng', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Hải Cảng', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Lê Hồng Phong', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Lý Thường Kiệt', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Ngô Mây', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Ngô Quyền', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Nguyễn Văn Cừ', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Nhơn Bình', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Nhơn Phú', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Quang Trung', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Thị Nại', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Trần Hưng Đạo', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Trần Phú', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Trần Quang Diệu', description: 'Phường thuộc thành phố Quy Nhơn' },
+    { name: 'Nhơn Châu', description: 'Xã thuộc thành phố Quy Nhơn' },
+    { name: 'Nhơn Hải', description: 'Xã thuộc thành phố Quy Nhơn' },
+    { name: 'Nhơn Hội', description: 'Xã thuộc thành phố Quy Nhơn' },
+    { name: 'Nhơn Lý', description: 'Xã thuộc thành phố Quy Nhơn' },
+    { name: 'Phước Mỹ', description: 'Xã thuộc thành phố Quy Nhơn' },
   ]);
   const admin = await User.create({ fullName: 'Quản trị viên', email: 'admin@quynhon.local', phone: '0901234567', password: 'Admin@123', role: 'admin', isApproved: true });
   const [shipperOne, shipperTwo] = await User.create([

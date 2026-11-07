@@ -8,6 +8,7 @@
     "start": "node server/server.js",
     "dev": "nodemon server/server.js",
     "seed": "node scripts/seed.js",
+    "areas:seed": "node scripts/upsertQuyNhonAreas.js",
     "check": "node scripts/check-syntax.js"
   },
   "engines": {
